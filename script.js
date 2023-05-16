@@ -214,20 +214,19 @@ function Update(){
     moneyText.innerText = numberWithSpaces(profile.money);;
 
     nikeRisk.innerText = 'Risk ' + nikeStock.risk + "/5";
-    nikePrice.innerText = nikeStock.price;
-
+    nikePrice.innerText = numberWithSpaces(nikeStock.price);
     nikeMove.innerText = nikeStock.movement + '%';
     nikeShares.innerText = nikeStock.shares;
     nikeName.innerText = nikeStock.name;
 
     teslaRisk.innerText = 'Risk ' + teslaStock.risk + "/5";
-    teslaPrice.innerText = teslaStock.price;
+    teslaPrice.innerText = numberWithSpaces(teslaStock.price);
     teslaMove.innerText = teslaStock.movement + '%';
     teslaShares.innerText = teslaStock.shares;
     teslaName.innerText = teslaStock.name;
 
     bitcoinRisk.innerText = 'Risk ' + bitcoinStock.risk + '/5';
-    bitcoinPrice.innerText = bitcoinStock.price;
+    bitcoinPrice.innerText = numberWithSpaces(bitcoinStock.price);
     bitcoinMove.innerText = bitcoinStock.movement + '%';
     bitcoinShares.innerText = bitcoinStock.shares;
     bitcoinName.innerText = bitcoinStock.name; 
