@@ -13,6 +13,11 @@
     <section class="hero has-text-centered is-large is-link">
         <div class="hero-body">
             <div class="container">
+
+                <div class="content">
+                    <h1 class="has-text-white has-text-weight-bold"><span class="is-underlined">SimTrader</span> v1.0</h1>
+                </div>
+
                 <section class="columns is-vcentered">
                     <div class="column is-one-third">
                         <div class="card">
@@ -63,21 +68,21 @@
                                                 <th id='nikeName'>Nike</th>
                                                 <td><span id='nikeRisk' class="tag is-success has-text-weight-bold">Risk 1/5</span></td>
                                                 <td><span id='nikePrice'>75</span>$</td>
-                                                <td><span id='nikeMove'>3</span>%</td>
+                                                <td><span id='nikeMove'>3</span></td>
                                                 <td>Shares: <span id="nikeShares">0</span></td>
                                             </tr>
                                             <tr>
                                                 <th id='teslaName'>Tesla</th>
                                                 <td><span id='teslaRisk' class="tag is-warning has-text-weight-bold">Risk 3/5</span></td>
                                                 <td><span id='teslaPrice'>550</span>$</td>
-                                                <td><span id='teslaMove'>+5</span>%</td>
+                                                <td><span id='teslaMove'>5</span></td>
                                                 <td>Shares: <span id='teslaShares'>0</span></td>
                                             </tr>
                                             <tr>
                                                 <th id='bitcoinName'>Bitcoin</th>
                                                 <td><span id='bitcoinRisk' class="tag is-danger has-text-weight-bold">Risk 5/5</span></td>
-                                                <td><span id='bitcoinPrice'>10000$</span>$</td>
-                                                <td><span id='bitcoinMove'>+14%</span>%</td>
+                                                <td><span id='bitcoinPrice'>10000</span>$</td>
+                                                <td><span id='bitcoinMove'>14%</span></td>
                                                 <td>Shares: <span id='bitcoinShares'>0</span></td>
                                             </tr>
                                         </tbody>
@@ -152,6 +157,13 @@
             </div>
         </div>
     </section>
+
+    <footer class="footer has-text-centered">
+        <div class="content">
+            <p>Open source code on <a class="is-underlined has-text-link has-text-weight-bold" href="https://github.com/AlexCor1/SimTrader">GitHub</a></p>
+        </div>
+    </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
 </html>

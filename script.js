@@ -11,9 +11,8 @@ let nikeStock = {
     'price': 75,
     'movement': 0,
     'shares': 0,
-    'desiredPrice': 75,
     'minPrice': 37,
-    'maxPrice': 112
+    'maxPrice': 112,
 }
 
 let teslaStock = {
@@ -22,7 +21,6 @@ let teslaStock = {
     'price': 500,
     'movement': 0,
     'shares': 0,
-    'desiredPrice': 500,
     'minPrice': 250,
     'maxPrice': 750,
 }
@@ -33,10 +31,10 @@ let bitcoinStock = {
     'price': 10000,
     'movement': 0,
     'shares': 0,
-    'desiredPrice': 10000,
     'minPrice': 5000,
     'maxPrice': 15000,
 }
+
 
 let stocks = [nikeStock, teslaStock, bitcoinStock]
 let selectedStock = stocks[0]
@@ -114,6 +112,7 @@ function newPrice() {
         var priceRange = Math.ceil(stocks[s].price / 100 * 10) * stocks[s].risk;
 
         var sDir = 50;
+        var dprice = stocks[s].price;
 
         if(stocks[s].price < stocks[s].minPrice) {
             sDir -= stocks[s].minPrice;
@@ -122,14 +121,14 @@ function newPrice() {
         }
 
         if (Math.floor(Math.random() * 100) >= sDir){
-            stocks[s].desiredPrice = stocks[s].price + getRandomNumberInRange(0, priceRange);
+            dprice = stocks[s].price + getRandomNumberInRange(0, priceRange);
         } else {
-            stocks[s].desiredPrice = stocks[s].price - getRandomNumberInRange(0, priceRange);
+            dprice = stocks[s].price - getRandomNumberInRange(0, priceRange);
         }
 
-        stocks[s].movement = 100 - Math.floor((stocks[s].price / stocks[s].desiredPrice) * 100)
-
-        stocks[s].price = stocks[s].desiredPrice; 
+        stocks[s].movement = 100 - Math.floor((stocks[s].price / dprice) * 100)
+        stocks[s].price = dprice; 
+        updateMoveColor();
     }
 }
 
@@ -167,6 +166,33 @@ function updateSelect(){
     }
 }
 
+function updateMoveColor() {
+    if(nikeStock.movement >= 0){
+        nikeMove.classList.remove('has-text-danger');
+        nikeMove.classList.add('has-text-success');
+    } else {
+        nikeMove.classList.remove('has-text-success');
+        nikeMove.classList.add('has-text-danger');
+    }
+
+    if(teslaStock.movement >= 0){
+        teslaMove.classList.remove('has-text-danger');
+        teslaMove.classList.add('has-text-success');
+    } else {
+        teslaMove.classList.remove('has-text-success');
+        teslaMove.classList.add('has-text-danger');
+    }
+
+    if(bitcoinStock.movement >= 0) {
+        bitcoinMove.classList.remove('has-text-danger');
+        bitcoinMove.classList.add('has-text-success');
+    } else {
+        bitcoinMove.classList.remove('has-text-success');
+        bitcoinMove.classList.add('has-text-danger')
+    }
+
+}
+
 function updateStockAmount() {
 
     stockAmount.min = -selectedStock.shares
@@ -189,19 +215,20 @@ function Update(){
 
     nikeRisk.innerText = 'Risk ' + nikeStock.risk + "/5";
     nikePrice.innerText = nikeStock.price;
-    nikeMove.innerText = nikeStock.movement;
+
+    nikeMove.innerText = nikeStock.movement + '%';
     nikeShares.innerText = nikeStock.shares;
     nikeName.innerText = nikeStock.name;
 
     teslaRisk.innerText = 'Risk ' + teslaStock.risk + "/5";
     teslaPrice.innerText = teslaStock.price;
-    teslaMove.innerText = teslaStock.movement;
+    teslaMove.innerText = teslaStock.movement + '%';
     teslaShares.innerText = teslaStock.shares;
     teslaName.innerText = teslaStock.name;
 
     bitcoinRisk.innerText = 'Risk ' + bitcoinStock.risk + '/5';
     bitcoinPrice.innerText = bitcoinStock.price;
-    bitcoinMove.innerText = bitcoinStock.movement;
+    bitcoinMove.innerText = bitcoinStock.movement + '%';
     bitcoinShares.innerText = bitcoinStock.shares;
     bitcoinName.innerText = bitcoinStock.name; 
 
