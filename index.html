@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <title>SimTrader</title>
+</head>
+<body>
+    <section class="hero has-text-centered is-large is-link">
+        <div class="hero-body">
+            <div class="container">
+                <section class="columns is-vcentered">
+                    <div class="column is-one-third">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-header-title is-centered">
+                                    Profile
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <th>Age</th>
+                                                <td id="ageText">18</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Money</th>
+                                                <td id="moneyText">1000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-footer-item">
+                                    <button id="workButton" class="button is-success is-fullwidth">Work</button>
+                                </div>
+                                <div class="card-footer-item">
+                                    <button id="funButton" class="button is-success is-outlined is-fullwidth">Fun</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-header-title is-centered">
+                                    Stocks
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-container">
+                                    <table class="table is-fullwidth">
+                                        <tbody>
+                                            <tr>
+                                                <th id='nikeName'>Nike</th>
+                                                <td><span id='nikeRisk' class="tag is-success has-text-weight-bold">Risk 1/5</span></td>
+                                                <td><span id='nikePrice'>75</span>$</td>
+                                                <td><span id='nikeMove'>3</span>%</td>
+                                                <td>Shares: <span id="nikeShares">0</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th id='teslaName'>Tesla</th>
+                                                <td><span id='teslaRisk' class="tag is-warning has-text-weight-bold">Risk 3/5</span></td>
+                                                <td><span id='teslaPrice'>550</span>$</td>
+                                                <td><span id='teslaMove'>+5</span>%</td>
+                                                <td>Shares: <span id='teslaShares'>0</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th id='bitcoinName'>Bitcoin</th>
+                                                <td><span id='bitcoinRisk' class="tag is-danger has-text-weight-bold">Risk 5/5</span></td>
+                                                <td><span id='bitcoinPrice'>10000$</span>$</td>
+                                                <td><span id='bitcoinMove'>+14%</span>%</td>
+                                                <td>Shares: <span id='bitcoinShares'>0</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="card">
+                        <div class="card-header">
+                            <p class="card-header-title is-centered">Invest</p>
+                        </div>
+                        <div class="card-content">
+                            <div class="columns">
+                                <div class="column is-one-third">
+                                    <div class="select is-medium is-link">
+                                        <select id="stockSelect">
+                                            <option>Nike</option>
+                                            <option>Tesla</option>
+                                            <option>Bitcoin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <label>Amount: <span id='amountText'>0</span></label>
+                                    <br/>
+                                    <input id="stockAmount" type="range" min="-100" max="100" value="0"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-footer-item">
+                                <button id='stockAction' class="button is-link">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="endModal" class="modal is-clipped">
+                    <div class="modal-background"></div>
+                    <div class="modal-content">
+                        <div class="container">
+                            <div class="box">
+                                <h1 class="title has-text-black">End Game</h1>
+                                <h3>You've lived a great life, here is a recap:</h3>
+                                <br/>
+                                <table class="table is-bordered is-fullwidth">
+                                    <tbody>
+                                        <tr>
+                                            <th class="has-text-centered">Age</th>
+                                            <td id="ageRecap" class="has-text-centered">99</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="has-text-centered">Money</th>
+                                            <td id="moneyRecap" class="has-text-centered">1000</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="has-text-centered">Fun Years</th>
+                                            <td id="funRecap" class="has-text-centered">17</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br/>
+                                <button id='restartButton' class="button is-link is-medium">Restart</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="script.js"></script>
+</html>
